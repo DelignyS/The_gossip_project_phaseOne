@@ -9,4 +9,4 @@ w+, pour "write and read" : tu vas pouvoir réécrire intégralement ton fichier
 a+, pour "append and read" : tu vas pouvoir ajouter des lignes à ton fichier, et aussi pouvoir lire ce qu'il y a dedans.
 r+, pour "read and write" : tu vas pouvoir modifier ton fichier sans tout effacer
 
-Morceau de ressource THP, Soleil sur toi Ikram
+Morceau de ressource THP, Soleil sur toi Ikrame
