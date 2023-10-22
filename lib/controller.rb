@@ -12,5 +12,30 @@ class Controller
   def index_gossip
     all_gossips_array = Gossip.all
     View.new.index_gossip(all_gossips_array) 
-end
+  end
+  def delete_by_author
+    puts "Saisis l'auteur du gossip que tu veux supprimer :"
+    author_to_delete = gets.chomp
+
+    all_gossips = Gossip.all
+    gossips_to_delete = all_gossips.select { |gossip| gossip.author == author_to_delete }
+
+    if gossips_to_delete.empty?
+      puts "Aucun gossip trouvé pour cet auteur."
+    else
+      gossips_to_delete.each do |gossip|
+        all_gossips.delete(gossip)
+      end
+
+      # Réécrit le fichier CSV avec la liste mise à jour
+      CSV.open("db/gossip.csv", "w") do |csv|
+        all_gossips.each do |gossip|
+          csv << [gossip.author, gossip.content]
+        end
+      end
+
+      puts "Les gossips de #{author_to_delete} ont été supprimés avec succès."
+    end
+  end
+
 end
