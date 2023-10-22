@@ -10,9 +10,13 @@ class View
       params[:author] = gets.chomp
       puts "Dis nous tout"
       print ">"
-      params[:content = gets.chomp]
+      params[:content] = gets.chomp
       return params
     end
     def index_gossip(gossips)
-      gossips.each 
+      gossips.each do |displayed_gossip|
+        puts displayed_gossip.author
+        puts displayed_gossip.content
+      end
     end
+  end

@@ -11,12 +11,20 @@ class Router
       #on affiche le menu
       puts "Tu veux faire quoi jeune mouss' ?"
       puts "1\. Je veux créer un gossip"
+      puts "2\. Afficher tout les potins"
+      puts "3\. Supprimer un potin"
       puts "4\. Je veux quitter l'app"
       params = gets.chomp.to_i #on attend le choix de l'utilisateur
       case params #en fonction du choix
       when 1
         puts "Tu as choisi de créer un gossip"
         @controller.create_gossip
+      when 2
+        puts "Tu a choisis de deterrer des vieux dossiers"
+        @controller.index_gossip
+      when 3
+        puts "Tu as choisis de supprimer un potin"
+        @controller.destroy
       when 4
         puts "A bientôt !"
         break #ce break permet de sortir de la boucle while, c'est même la seule façon d'en sortir 
